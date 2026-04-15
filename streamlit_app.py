@@ -5,16 +5,26 @@ import requests
 import tensorflow as tf
 import time
 
+MODEL_URL = "https://drive.google.com/file/d/1xDW7a6jV2u50Zfokbe2kEcuCc3at5yHA/view?usp=sharing"
+MODEL_PATH = "garbage-efficientnetv2s-1relulayer-2026_04_09-04_15.keras"
 
 @st.cache_resource
 def load_model():
-    model_path = "garbage-efficientnetv2s-1relulayer-2026_04_09-04_15 (1).keras"
+    if not os.path.exists(MODEL_PATH):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
-    return tf.keras.models.load_model(
-        model_path,
-        compile=False
-    )
+    return tf.keras.models.load_model(MODEL_PATH, compile=False)
+
 model = load_model()
+#@st.cache_resource
+#def load_model():
+    #model_path = "garbage-efficientnetv2s-1relulayer-2026_04_09-04_15 (1).keras"
+
+   # return tf.keras.models.load_model(
+        #model_path,
+        #compile=False
+   # )
+#model = load_model()
 
 def preprocess_image(image):
     from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
