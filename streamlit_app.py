@@ -4,8 +4,10 @@ from PIL import Image
 import requests
 import tensorflow as tf
 import time
+import os
+import gdown
 
-MODEL_URL = "https://drive.google.com/file/d/1xDW7a6jV2u50Zfokbe2kEcuCc3at5yHA/view?usp=sharing"
+MODEL_URL = "https://drive.google.com/uc?id=1xDW7a6jV2u50Zfokbe2kEcuCc3at5yHA"
 MODEL_PATH = "garbage-efficientnetv2s-1relulayer-2026_04_09-04_15.keras"
 
 @st.cache_resource
