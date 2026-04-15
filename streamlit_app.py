@@ -8,7 +8,7 @@ import time
 
 @st.cache_resource
 def load_model():
-    model_path = r"C:\Renesa\Python\Artificiathon\garbage-efficientnetv2s-1relulayer-2026_04_09-04_15 (1).keras"
+    model_path = "garbage-efficientnetv2s-1relulayer-2026_04_09-04_15 (1).keras"
 
     return tf.keras.models.load_model(
         model_path,
